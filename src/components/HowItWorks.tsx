@@ -1,0 +1,99 @@
+"use client";
+
+import React from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+
+export default function HowItWorks() {
+  const container = {
+    hidden: { opacity: 0 },
+    show: { opacity: 1, transition: { staggerChildren: 0.2 } },
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  };
+
+  return (
+    <div className="w-full mt-12">
+      {/* 1. How it works (Terracotta Band) */}
+      <section className="w-full bg-[#c1613c] text-white py-24 relative overflow-hidden">
+        <div className="max-w-screen-2xl mx-auto px-6 md:px-20 text-center">
+          <h2 className="text-4xl md:text-6xl font-serif mb-16">How it works.</h2>
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-3 gap-12"
+            variants={container}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            {[
+              { icon: "🔍", title: "Discover", desc: "Browse curated experiences hosted by passionate local artisans." },
+              { icon: "📅", title: "Book", desc: "Reserve your spot in an intimate, small-group setting." },
+              { icon: "⚒️", title: "Experience", desc: "Get hands-on, learn a new craft, and take home what you make." }
+            ].map((step, i) => (
+              <motion.div key={i} variants={item} className="flex flex-col items-center gap-4">
+                <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center text-2xl mb-2 backdrop-blur-sm">
+                  {step.icon}
+                </div>
+                <h4 className="text-2xl font-bold">{step.title}</h4>
+                <p className="text-white/80 max-w-xs">{step.desc}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 2. Impact Stats & Elena Spotlight */}
+      <section className="w-full bg-[#2B4739] text-[#F7F1E6] pt-16 pb-32 relative rounded-b-[3rem]">
+        <div className="max-w-screen-2xl mx-auto px-6 md:px-20">
+          {/* Stats Row */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center mb-24">
+            {[
+              { val: "12k+", label: "Experiences Booked" },
+              { val: "500+", label: "Master Artisans" },
+              { val: "4.9", label: "Average Rating" },
+              { val: "50+", label: "Cities Worldwide" }
+            ].map((stat, i) => (
+              <div key={i} className="flex flex-col gap-1">
+                <span className="text-4xl md:text-5xl mb-1 font-serif">{stat.val}</span>
+                <span className="text-xs font-bold tracking-widest uppercase text-[#F7F1E6]/60">{stat.label}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Elena Spotlight (Card) */}
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-[#F7F1E6] text-[#26231F] rounded-[2rem] p-8 md:p-12 shadow-2xl flex flex-col md:flex-row gap-12 items-center"
+          >
+            <div className="w-full md:w-1/2 aspect-[4/5] relative rounded-[1.5rem] overflow-hidden shadow-lg">
+              <Image 
+                src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?q=80&w=1000&auto=format&fit=crop" 
+                alt="Elena the Ceramist"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="w-full md:w-1/2 flex flex-col gap-6">
+              <span className="text-xs font-bold tracking-[0.2em] text-[#c1613c] uppercase">Behind the Craft</span>
+              <h2 className="text-4xl md:text-5xl font-serif leading-tight">Meet Elena,<br/>Master Ceramist.</h2>
+              <p className="text-lg leading-relaxed text-[#55433c]">
+                "Pottery isn't just about creating a vessel; it's about grounding yourself in the present moment. Every piece of clay holds a story, and I love helping my students discover theirs."
+              </p>
+              <p className="text-[#55433c]">
+                Elena has been throwing clay for over 20 years. Her studio in the heart of Barcelona is a sanctuary for those looking to disconnect from the digital world.
+              </p>
+              <a href="#" className="font-semibold text-[#c1613c] flex items-center gap-2 hover:gap-4 transition-all">
+                Read her story →
+              </a>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+    </div>
+  );
+}

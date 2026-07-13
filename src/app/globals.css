@@ -8,14 +8,11 @@
   --color-surface: #F7F1E6; /* Warm Cream */
   --color-ink: #26231F; /* Charcoal */
 
-  /* Force Inter as the default sans font */
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   
-  /* Enforce the strict 16px radius for cards */
   --radius-2xl: 1rem; 
 }
 
-/* Force light mode globally */
 @layer base {
   :root {
     color-scheme: light;
@@ -24,4 +21,13 @@
     background-color: var(--color-surface);
     color: var(--color-ink);
   }
+}
+
+.custom-swiper .swiper-pagination-bullet {
+  background-color: #ffffff;
+  opacity: 0.6;
+}
+.custom-swiper .swiper-pagination-bullet-active {
+  background-color: #c1613c;
+  opacity: 1;
 }
