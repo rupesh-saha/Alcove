@@ -1,26 +1,27 @@
 @import "tailwindcss";
+@import "@heroui/styles";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Alcove Brand Colors */
+  --color-primary: #c1613c; /* Terracotta */
+  --color-secondary: #2B4739; /* Deep Forest */
+  --color-surface: #F7F1E6; /* Warm Cream */
+  --color-ink: #26231F; /* Charcoal */
+
+  /* Force Inter as the default sans font */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  
+  /* Enforce the strict 16px radius for cards */
+  --radius-2xl: 1rem; 
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+/* Force light mode globally */
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    color-scheme: light;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    background-color: var(--color-surface);
+    color: var(--color-ink);
+  }
 }
