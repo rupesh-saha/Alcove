@@ -3,21 +3,35 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { Button, Drawer } from "@heroui/react";
-import { Bars, House, Magnifier, Person, Envelope, Gear } from "@gravity-ui/icons";
+import { Bars, House, Magnifier, Person, Envelope } from "@gravity-ui/icons";
 import { motion } from "framer-motion";
+import { authClient } from "@/lib/auth-client";
 
 export default function Navbar() {
   const pathname = usePathname();
+  const router = useRouter();
+  
+  // Fetch session data
+  const { data: session } = authClient.useSession();
 
   const navItems = [
     { icon: House, label: "Home", href: "/" },
     { icon: Magnifier, label: "Explore", href: "/explore" },
     { icon: Person, label: "About", href: "/about" },
     { icon: Envelope, label: "Contact", href: "/contact" },
-    { icon: Gear, label: "Dashboard", href: "/dashboard" },
   ];
+
+  const handleLogOut = async () => {
+    await authClient.signOut({
+      fetchOptions: {
+        onSuccess: () => {
+          router.push("/login"); 
+        },
+      },
+    });
+  };
 
   return (
     <header className="sticky top-0 w-full z-50 bg-[#F7F1E6]/90 backdrop-blur-md border-b border-[#dcc1b8]/30 shadow-sm transition-all duration-300">
@@ -43,7 +57,7 @@ export default function Navbar() {
             return (
               <Link className="relative px-3 py-2 flex items-center group" href={item.href} key={item.label}>
                 <div
-                  className={`text-sm font-semibold tracking-wide z-10 flex items-center transition-colors duration-300 ${isActive ? "text-[#c1613c]" : "text-[#55433c] group-hover:text-primary-600 transition-colors duration-300"
+                  className={`text-sm font-semibold tracking-wide z-10 flex items-center transition-colors duration-300 ${isActive ? "text-[#c1613c]" : "text-[#55433c] group-hover:text-[#c1613c] transition-colors duration-300"
                     }`}
                 >
                   {/* Sliding Number Reveal */}
@@ -79,19 +93,41 @@ export default function Navbar() {
           })}
         </nav>
 
-        {/* Right: Desktop Auth Buttons */}
-        <div className="hidden md:flex items-center gap-6">
-          <div className="hidden md:flex items-center gap-6">
-            <Link href="/login" className="text-sm font-semibold px-6 py-2.5 rounded-xl text-[#26231F] hover:text-black hover:bg-[#c1613c]/40 transition-colors">
-              Log In
-            </Link>
-            <Link href="/signup" className="text-sm font-semibold bg-[#c1613c] text-white px-6 py-2.5 rounded-xl hover:bg-[#a54f2f] shadow-md transition-all inline-block">
-              Sign Up
-            </Link>
-          </div>
+        {/* Right: Desktop Auth Buttons / User Profile */}
+        <div className="hidden md:flex items-center gap-4">
+          {session ? (
+            <div className="flex items-center gap-5">
+              <span className="text-sm font-serif italic text-[#55433c]">
+                Serene, {session.user.name}
+              </span>
+              <Link href="/dashboard" className="text-sm font-semibold px-4 py-2 rounded-xl text-[#26231F] border border-[#dcc1b8]/40 bg-[#c1613c]/10 hover:bg-[#c1613c]/20 transition-colors">
+                Dashboard
+              </Link>
+              <Button 
+                onPress={handleLogOut} 
+                variant="light" 
+                className="text-sm font-semibold text-[#c1613c] hover:bg-[#c1613c]/10 rounded-xl"
+                isIconOnly
+                aria-label="Log Out"
+              >
+                {/* SVG Log out icon */}
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
+                </svg>
+              </Button>
+            </div>
+          ) : (
+            <div className="flex items-center gap-4">
+              <Link href="/login" className="text-sm font-semibold px-6 py-2.5 rounded-xl text-[#26231F] hover:text-black hover:bg-[#c1613c]/20 transition-colors">
+                Log In
+              </Link>
+              <Link href="/signup" className="text-sm font-semibold bg-[#c1613c] text-white px-6 py-2.5 rounded-xl hover:bg-[#a54f2f] shadow-md transition-all inline-block">
+                Sign Up
+              </Link>
+            </div>
+          )}
         </div>
 
-        {/* Mobile: HeroUI Drawer */}
         <div className="md:hidden">
           <Drawer>
             <Button className="text-[#26231F]" isIconOnly variant="light">
@@ -125,20 +161,42 @@ export default function Navbar() {
                         );
                       })}
 
-                      {/* FIXED MOBILE BUTTONS */}
+                      {/* FIXED MOBILE BUTTONS / PROFILE AREA */}
                       <div className="mt-8 flex flex-col gap-3 border-t border-[#dcc1b8]/30 pt-6">
-                        <Link
-                          href="/login"
-                          className="block w-full text-center py-3 bg-transparent border-2 border-[#2B4739] text-[#2B4739] rounded-xl font-semibold hover:bg-[#2B4739] hover:text-white transition-colors"
-                        >
-                          Log In
-                        </Link>
-                        <Link
-                          href="/signup"
-                          className="block w-full text-center py-3 bg-[#c1613c] text-white rounded-xl font-semibold shadow-md hover:bg-[#a54f2f] transition-colors"
-                        >
-                          Sign Up
-                        </Link>
+                        {session ? (
+                          <>
+                            <div className="text-center pb-2 text-base font-serif italic text-[#55433c]">
+                              Serene, {session.user.name}
+                            </div>
+                            <Link
+                              href="/dashboard"
+                              className="block w-full text-center py-3 bg-transparent border-2 border-[#2B4739] text-[#2B4739] rounded-xl font-semibold hover:bg-[#2B4739] hover:text-white transition-colors"
+                            >
+                              Dashboard
+                            </Link>
+                            <Button
+                              onPress={handleLogOut}
+                              className="block w-full text-center py-3 bg-[#c1613c] text-white rounded-xl font-semibold shadow-md hover:bg-[#a54f2f] transition-colors"
+                            >
+                              Log Out
+                            </Button>
+                          </>
+                        ) : (
+                          <>
+                            <Link
+                              href="/login"
+                              className="block w-full text-center py-3 bg-transparent border-2 border-[#2B4739] text-[#2B4739] rounded-xl font-semibold hover:bg-[#2B4739] hover:text-white transition-colors"
+                            >
+                              Log In
+                            </Link>
+                            <Link
+                              href="/signup"
+                              className="block w-full text-center py-3 bg-[#c1613c] text-white rounded-xl font-semibold shadow-md hover:bg-[#a54f2f] transition-colors"
+                            >
+                              Sign Up
+                            </Link>
+                          </>
+                        )}
                       </div>
                     </nav>
                   </Drawer.Body>
