@@ -43,7 +43,7 @@ export default function FooterBar() {
             <Image alt="Alcove Logo" className="object-contain h-18 w-auto" height={70} src="/logo.png" width={160}/>
           </div>
           <p className="text-surface/80 text-sm max-w-[200px] leading-relaxed mt-2">
-            © 2024 Alcove Experiences.<br/>Handcrafted with care.
+            © 2026 Alcove Experiences.<br/>Handcrafted with care.
           </p>
         </motion.div>
 
@@ -51,24 +51,24 @@ export default function FooterBar() {
         <motion.div variants={itemVariants} className="flex flex-col gap-5">
           <span className="text-sm font-bold tracking-[0.15em] uppercase text-surface">Company</span>
           <Link className="text-surface/80 hover:text-white transition-colors duration-300" href="/about">About</Link>
-          <Link className="text-surface/80 hover:text-white transition-colors duration-300" href="/careers">Careers</Link>
-          <Link className="text-surface/80 hover:text-white transition-colors duration-300" href="/press">Press</Link>
+          {/* <Link className="text-surface/80 hover:text-white transition-colors duration-300" href="/careers">Careers</Link>
+          <Link className="text-surface/80 hover:text-white transition-colors duration-300" href="/press">Press</Link> */}
         </motion.div>
 
         {/* Column 3: Support Links */}
         <motion.div variants={itemVariants} className="flex flex-col gap-5">
           <span className="text-sm font-bold tracking-[0.15em] uppercase text-surface">Support</span>
-          <Link className="text-surface/80 hover:text-white transition-colors duration-300" href="/help">Help Center</Link>
+          <Link className="text-surface/80 hover:text-white transition-colors duration-300" href="/terms">Terms and Conditions</Link>
           <Link className="text-surface/80 hover:text-white transition-colors duration-300" href="/contact">Contact Us</Link>
-          <Link className="text-surface/80 hover:text-white transition-colors duration-300" href="/cancellation">Cancellation Policy</Link>
+          {/* <Link className="text-surface/80 hover:text-white transition-colors duration-300" href="/cancellation">Cancellation Policy</Link> */}
         </motion.div>
 
         {/* Column 4: Explore Links */}
         <motion.div variants={itemVariants} className="flex flex-col gap-5">
           <span className="text-sm font-bold tracking-[0.15em] uppercase text-surface">Explore</span>
           <Link className="text-surface/80 hover:text-white transition-colors duration-300" href="/explore">Experiences</Link>
-          <Link className="text-surface/80 hover:text-white transition-colors duration-300" href="/host">Host an Experience</Link>
-          <Link className="text-surface/80 hover:text-white transition-colors duration-300" href="/gift-cards">Gift Cards</Link>
+          <Link className="text-surface/80 hover:text-white transition-colors duration-300" href="/signup">Host an Experience</Link>
+          <Link className="text-surface/80 hover:text-white transition-colors duration-300" href="/gift-cards">Gift Cards (coming soon)</Link>
         </motion.div>
 
       </motion.div>
