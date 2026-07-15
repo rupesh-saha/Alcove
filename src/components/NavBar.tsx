@@ -81,12 +81,14 @@ export default function Navbar() {
 
         {/* Right: Desktop Auth Buttons */}
         <div className="hidden md:flex items-center gap-6">
-          <button className="text-sm font-semibold text-[#26231F] hover:text-[#c1613c] transition-colors">
-            Login
-          </button>
-          <button className="text-sm font-semibold bg-[#c1613c] text-white px-6 py-2.5 rounded-xl hover:bg-[#a54f2f] shadow-md transition-all">
-            Signup
-          </button>
+          <div className="hidden md:flex items-center gap-6">
+            <Link href="/login" className="text-sm font-semibold px-6 py-2.5 rounded-xl text-[#26231F] hover:text-black hover:bg-[#c1613c]/40 transition-colors">
+              Log In
+            </Link>
+            <Link href="/signup" className="text-sm font-semibold bg-[#c1613c] text-white px-6 py-2.5 rounded-xl hover:bg-[#a54f2f] shadow-md transition-all inline-block">
+              Sign Up
+            </Link>
+          </div>
         </div>
 
         {/* Mobile: HeroUI Drawer */}
@@ -113,8 +115,8 @@ export default function Navbar() {
                             key={item.label}
                             href={item.href}
                             className={`flex items-center gap-4 rounded-xl px-4 py-3 text-base transition-colors ${isActive
-                                ? "bg-[#c1613c]/10 text-[#c1613c] font-semibold"
-                                : "text-[#55433c] hover:bg-[#e9e1db]"
+                              ? "bg-[#c1613c]/10 text-[#c1613c] font-semibold"
+                              : "text-[#55433c] hover:bg-[#e9e1db]"
                               }`}
                           >
                             <item.icon className={`size-5 ${isActive ? "text-[#c1613c]" : "text-[#89726b]"}`} />
@@ -123,12 +125,19 @@ export default function Navbar() {
                         );
                       })}
 
+                      {/* FIXED MOBILE BUTTONS */}
                       <div className="mt-8 flex flex-col gap-3 border-t border-[#dcc1b8]/30 pt-6">
-                        <Link href="/login" className="w-full bg-transparent border-2 border-[#2B4739] text-[#2B4739] rounded-xl font-semibold">
-                          Login
+                        <Link
+                          href="/login"
+                          className="block w-full text-center py-3 bg-transparent border-2 border-[#2B4739] text-[#2B4739] rounded-xl font-semibold hover:bg-[#2B4739] hover:text-white transition-colors"
+                        >
+                          Log In
                         </Link>
-                        <Link href="/signup" className="w-full bg-[#c1613c] text-white rounded-xl font-semibold shadow-md">
-                          Signup
+                        <Link
+                          href="/signup"
+                          className="block w-full text-center py-3 bg-[#c1613c] text-white rounded-xl font-semibold shadow-md hover:bg-[#a54f2f] transition-colors"
+                        >
+                          Sign Up
                         </Link>
                       </div>
                     </nav>
