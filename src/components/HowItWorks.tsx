@@ -63,7 +63,6 @@ export default function HowItWorks() {
             ))}
           </div>
 
-          {/* Elena Spotlight (Card) */}
           <motion.div 
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -72,23 +71,23 @@ export default function HowItWorks() {
           >
             <div className="w-full md:w-1/2 aspect-[4/5] relative rounded-[1.5rem] overflow-hidden shadow-lg">
               <Image 
-                src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?q=80&w=1000&auto=format&fit=crop" 
-                alt="Elena the Ceramist"
+                src="https://images.pexels.com/photos/34951346/pexels-photo-34951346.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load" 
+                alt="Rafael the Sculpturist"
                 fill
                 className="object-cover"
               />
             </div>
             <div className="w-full md:w-1/2 flex flex-col gap-6">
               <span className="text-xs font-bold tracking-[0.2em] text-[#c1613c] uppercase">Behind the Craft</span>
-              <h2 className="text-4xl md:text-5xl font-serif leading-tight">Meet Elena,<br/>Master Ceramist.</h2>
+              <h2 className="text-4xl md:text-5xl font-serif leading-tight">Meet Rafael,<br/>Master Sculpturist</h2>
               <p className="text-lg leading-relaxed text-[#55433c]">
-                "Pottery isn't just about creating a vessel; it's about grounding yourself in the present moment. Every piece of clay holds a story, and I love helping my students discover theirs."
+                "Sculpture isn't just about creating a form; it's about capturing the essence of life. Every piece of clay holds a story, and I love helping my students discover theirs."
               </p>
               <p className="text-[#55433c]">
-                Elena has been throwing clay for over 20 years. Her studio in the heart of Barcelona is a sanctuary for those looking to disconnect from the digital world.
+                Rafael has been sculpting for over 20 years. His studio in the heart of Barcelona is a sanctuary for those looking to disconnect from the digital world.
               </p>
               <a href="#" className="font-semibold text-[#c1613c] flex items-center gap-2 hover:gap-4 transition-all">
-                Read her story →
+                Read his story →
               </a>
             </div>
           </motion.div>

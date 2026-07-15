@@ -43,7 +43,7 @@ export default function Navbar() {
             return (
               <Link className="relative px-3 py-2 flex items-center group" href={item.href} key={item.label}>
                 <div
-                  className={`text-sm font-semibold tracking-wide z-10 flex items-center transition-colors duration-300 ${isActive ? "text-[#c1613c]" : "text-[#55433c] group-hover:text-[#c1613c]"
+                  className={`text-sm font-semibold tracking-wide z-10 flex items-center transition-colors duration-300 ${isActive ? "text-[#c1613c]" : "text-[#55433c] group-hover:text-primary-600 transition-colors duration-300"
                     }`}
                 >
                   {/* Sliding Number Reveal */}
