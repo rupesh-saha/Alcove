@@ -47,7 +47,7 @@ export default function Testimonials() {
   return (
     <section className="w-full py-24 bg-[#e9e1db] overflow-hidden mt-10">
       <div className="max-w-screen-2xl mx-auto px-6 md:px-20 mb-12">
-        <h2 className="text-4xl md:text-5xl font-serif text-center text-[#26231F]">
+        <h2 className="text-4xl md:text-5xl font-serif text-center text-ink">
           What our guests say
         </h2>
       </div>
@@ -64,7 +64,7 @@ export default function Testimonials() {
                   <Image alt={t.name} className="object-cover" fill sizes="48px" src={t.avatar} />
                 </div>
                 <div className="flex flex-col">
-                  <span className="font-bold text-[#26231F] leading-tight">
+                  <span className="font-bold text-ink leading-tight">
                     {t.name}
                   </span>
                   <span className="text-sm text-[#55433c]">
@@ -73,7 +73,7 @@ export default function Testimonials() {
                 </div>
               </div>
 
-              <div className="flex text-[#c1613c] text-lg tracking-widest">
+              <div className="flex text-primary text-lg tracking-widest">
                 ★★★★★
               </div>
 

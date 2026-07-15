@@ -34,7 +34,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 w-full z-50 bg-[#F7F1E6]/90 backdrop-blur-md border-b border-[#dcc1b8]/30 shadow-sm transition-all duration-300">
+    <header className="sticky top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-[#dcc1b8]/30 shadow-sm transition-all duration-300">
       <div className="flex justify-between items-center w-full px-6 md:px-20 py-4 max-w-screen-2xl mx-auto">
 
         {/* Left: Logo */}
@@ -57,7 +57,7 @@ export default function Navbar() {
             return (
               <Link className="relative px-3 py-2 flex items-center group" href={item.href} key={item.label}>
                 <div
-                  className={`text-sm font-semibold tracking-wide z-10 flex items-center transition-colors duration-300 ${isActive ? "text-[#c1613c]" : "text-[#55433c] group-hover:text-[#c1613c] transition-colors duration-300"
+                  className={`text-sm font-semibold tracking-wide z-10 flex items-center transition-colors duration-300 ${isActive ? "text-primary" : "text-[#55433c] group-hover:text-primary transition-colors duration-300"
                     }`}
                 >
                   {/* Sliding Number Reveal */}
@@ -79,7 +79,7 @@ export default function Navbar() {
                 {isActive && (
                   <motion.div
                     layoutId="activeNavIndicator"
-                    className="absolute bottom-0 left-2 right-2 h-[2px] bg-[#c1613c]"
+                    className="absolute bottom-0 left-2 right-2 h-[2px] bg-primary"
                     initial={false}
                     transition={{
                       type: "spring",
@@ -100,13 +100,13 @@ export default function Navbar() {
               <span className="text-sm font-serif italic text-[#55433c]">
                 Serene, {session.user.name}
               </span>
-              <Link href="/dashboard" className="text-sm font-semibold px-4 py-2 rounded-xl text-[#26231F] border border-[#dcc1b8]/40 bg-[#c1613c]/10 hover:bg-[#c1613c]/20 transition-colors">
-                Dashboard
+              <Link href="/manage" className="text-sm font-semibold px-4 py-2 rounded-xl text-ink border border-[#dcc1b8]/40 bg-primary/10 hover:bg-primary/20 transition-colors">
+                Manage
               </Link>
               <Button 
                 onPress={handleLogOut} 
                 variant="light" 
-                className="text-sm font-semibold text-[#c1613c] hover:bg-[#c1613c]/10 rounded-xl"
+                className="text-sm font-semibold text-primary hover:bg-primary/10 rounded-xl"
                 isIconOnly
                 aria-label="Log Out"
               >
@@ -118,10 +118,10 @@ export default function Navbar() {
             </div>
           ) : (
             <div className="flex items-center gap-4">
-              <Link href="/login" className="text-sm font-semibold px-6 py-2.5 rounded-xl text-[#26231F] hover:text-black hover:bg-[#c1613c]/20 transition-colors">
+              <Link href="/login" className="text-sm font-semibold px-6 py-2.5 rounded-xl text-ink hover:text-black hover:bg-primary/20 transition-colors">
                 Log In
               </Link>
-              <Link href="/signup" className="text-sm font-semibold bg-[#c1613c] text-white px-6 py-2.5 rounded-xl hover:bg-[#a54f2f] shadow-md transition-all inline-block">
+              <Link href="/signup" className="text-sm font-semibold bg-primary text-white px-6 py-2.5 rounded-xl hover:bg-[#a54f2f] shadow-md transition-all inline-block">
                 Sign Up
               </Link>
             </div>
@@ -130,15 +130,15 @@ export default function Navbar() {
 
         <div className="md:hidden">
           <Drawer>
-            <Button className="text-[#26231F]" isIconOnly variant="light">
+            <Button className="text-ink" isIconOnly variant="light">
               <Bars height={24} width={24} />
             </Button>
             <Drawer.Backdrop>
-              <Drawer.Content className="bg-[#F7F1E6]" placement="left">
+              <Drawer.Content className="bg-surface" placement="left">
                 <Drawer.Dialog>
-                  <Drawer.CloseTrigger className="text-[#26231F]" />
+                  <Drawer.CloseTrigger className="text-ink" />
                   <Drawer.Header>
-                    <Drawer.Heading className="text-xl font-serif text-[#26231F]">Navigation</Drawer.Heading>
+                    <Drawer.Heading className="text-xl font-serif text-ink">Navigation</Drawer.Heading>
                   </Drawer.Header>
                   <Drawer.Body>
                     <nav className="flex flex-col gap-2 mt-4">
@@ -151,11 +151,11 @@ export default function Navbar() {
                             key={item.label}
                             href={item.href}
                             className={`flex items-center gap-4 rounded-xl px-4 py-3 text-base transition-colors ${isActive
-                              ? "bg-[#c1613c]/10 text-[#c1613c] font-semibold"
+                              ? "bg-primary/10 text-primary font-semibold"
                               : "text-[#55433c] hover:bg-[#e9e1db]"
                               }`}
                           >
-                            <item.icon className={`size-5 ${isActive ? "text-[#c1613c]" : "text-[#89726b]"}`} />
+                            <item.icon className={`size-5 ${isActive ? "text-primary" : "text-[#89726b]"}`} />
                             {displayLabel}
                           </Link>
                         );
@@ -169,14 +169,14 @@ export default function Navbar() {
                               Serene, {session.user.name}
                             </div>
                             <Link
-                              href="/dashboard"
-                              className="block w-full text-center py-3 bg-transparent border-2 border-[#2B4739] text-[#2B4739] rounded-xl font-semibold hover:bg-[#2B4739] hover:text-white transition-colors"
+                              href="/manage"
+                              className="block w-full text-center py-3 bg-transparent border-2 border-secondary text-secondary rounded-xl font-semibold hover:bg-secondary hover:text-white transition-colors"
                             >
-                              Dashboard
+                              Manage
                             </Link>
                             <Button
                               onPress={handleLogOut}
-                              className="block w-full text-center py-3 bg-[#c1613c] text-white rounded-xl font-semibold shadow-md hover:bg-[#a54f2f] transition-colors"
+                              className="block w-full text-center py-3 bg-primary text-white rounded-xl font-semibold shadow-md hover:bg-[#a54f2f] transition-colors"
                             >
                               Log Out
                             </Button>
@@ -185,13 +185,13 @@ export default function Navbar() {
                           <>
                             <Link
                               href="/login"
-                              className="block w-full text-center py-3 bg-transparent border-2 border-[#2B4739] text-[#2B4739] rounded-xl font-semibold hover:bg-[#2B4739] hover:text-white transition-colors"
+                              className="block w-full text-center py-3 bg-transparent border-2 border-secondary text-secondary rounded-xl font-semibold hover:bg-secondary hover:text-white transition-colors"
                             >
                               Log In
                             </Link>
                             <Link
                               href="/signup"
-                              className="block w-full text-center py-3 bg-[#c1613c] text-white rounded-xl font-semibold shadow-md hover:bg-[#a54f2f] transition-colors"
+                              className="block w-full text-center py-3 bg-primary text-white rounded-xl font-semibold shadow-md hover:bg-[#a54f2f] transition-colors"
                             >
                               Sign Up
                             </Link>

@@ -30,12 +30,11 @@ export default function SignupPage() {
 
     const name = `${firstName} ${lastName}`.trim();
 
-    // Pass the selected role to Better Auth
     const { data, error } = await authClient.signUp.email({
         name,
         email,
         password,
-        role, // Make sure your Better Auth config is set up to accept this field
+        role, 
         callbackURL: "/",
     });
 
@@ -68,9 +67,9 @@ export default function SignupPage() {
   };
 
   return (
-    <div className="flex flex-col md:flex-row min-h-screen bg-[#F7F1E6]">
+    <div className="flex flex-col md:flex-row min-h-screen bg-surface">
       
-      <div className="hidden md:flex flex-1 relative overflow-hidden items-end p-16 lg:p-24 bg-[#2B4739]">
+      <div className="hidden md:flex flex-1 relative overflow-hidden items-end p-16 lg:p-24 bg-secondary">
         <Image 
           alt="A beautifully designed interior space" 
           className="object-cover opacity-60 mix-blend-multiply" 
@@ -78,7 +77,7 @@ export default function SignupPage() {
           priority 
           src={sideImageUrl} 
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#26231F]/90 via-[#26231F]/20 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-ink/90 via-ink/20 to-transparent" />
         
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -86,20 +85,18 @@ export default function SignupPage() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="relative z-10 w-full max-w-lg"
         >
-          <h2 className="text-3xl lg:text-4xl font-serif text-[#F7F1E6] mb-4 leading-tight italic">
+          <h2 className="text-3xl lg:text-4xl font-serif text-surface mb-4 leading-tight italic">
             "Art is not a handicraft, it is the transmission of feeling the artist has experienced."
           </h2>
-          <p className="text-lg text-[#F7F1E6]/80 font-medium">
+          <p className="text-lg text-surface/80 font-medium">
             — Leo Tolstoy
           </p>
         </motion.div>
       </div>
 
-      {/* Right Side: Form */}
       <div className="flex-1 flex flex-col justify-center items-center p-8 md:p-16 relative overflow-y-auto">
         <div className="w-full max-w-md mx-auto py-8">
           
-          {/* Logo Area */}
           <motion.div 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -123,7 +120,7 @@ export default function SignupPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <h1 className="text-4xl font-serif text-[#26231F] mb-3">Join Alcove</h1>
+            <h1 className="text-4xl font-serif text-ink mb-3">Join Alcove</h1>
             <p className="text-[#55433c] mb-8 text-lg">Create an account to begin your journey.</p>
           </motion.div>
 
@@ -139,8 +136,8 @@ export default function SignupPage() {
                 onClick={() => setRole("guest")}
                 className={`flex-1 py-2.5 text-sm font-semibold rounded-lg transition-all duration-300 ${
                   role === "guest" 
-                    ? "bg-white text-[#c1613c] shadow-sm" 
-                    : "text-[#89726b] hover:text-[#26231F]"
+                    ? "bg-white text-primary shadow-sm" 
+                    : "text-[#89726b] hover:text-ink"
                 }`}
               >
                 I want to learn (Guest)
@@ -150,8 +147,8 @@ export default function SignupPage() {
                 onClick={() => setRole("host")}
                 className={`flex-1 py-2.5 text-sm font-semibold rounded-lg transition-all duration-300 ${
                   role === "host" 
-                    ? "bg-white text-[#c1613c] shadow-sm" 
-                    : "text-[#89726b] hover:text-[#26231F]"
+                    ? "bg-white text-primary shadow-sm" 
+                    : "text-[#89726b] hover:text-ink"
                 }`}
               >
                 I want to teach (Host)
@@ -168,13 +165,13 @@ export default function SignupPage() {
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-full">
                 <TextField className="w-full flex flex-col gap-1.5" isRequired name="firstName" type="text">
-                  <Label className="text-sm font-semibold text-[#26231F]">First name</Label>
-                  <Input className="bg-white border border-[#dcc1b8]/40 rounded-xl px-4 py-3 text-[#26231F] placeholder-[#89726b] focus:border-[#c1613c] focus:ring-1 focus:ring-[#c1613c] outline-none transition-all shadow-sm" placeholder="Jane"/>
+                  <Label className="text-sm font-semibold text-ink">First name</Label>
+                  <Input className="bg-white border border-[#dcc1b8]/40 rounded-xl px-4 py-3 text-ink placeholder-[#89726b] focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all shadow-sm" placeholder="Jane"/>
                 </TextField>
 
                 <TextField className="w-full flex flex-col gap-1.5" isRequired name="lastName" type="text">
-                  <Label className="text-sm font-semibold text-[#26231F]">Last name</Label>
-                  <Input className="bg-white border border-[#dcc1b8]/40 rounded-xl px-4 py-3 text-[#26231F] placeholder-[#89726b] focus:border-[#c1613c] focus:ring-1 focus:ring-[#c1613c] outline-none transition-all shadow-sm" placeholder="Doe"/>
+                  <Label className="text-sm font-semibold text-ink">Last name</Label>
+                  <Input className="bg-white border border-[#dcc1b8]/40 rounded-xl px-4 py-3 text-ink placeholder-[#89726b] focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all shadow-sm" placeholder="Doe"/>
                 </TextField>
               </div>
 
@@ -184,8 +181,8 @@ export default function SignupPage() {
                 name="email" 
                 type="email" 
               >
-                <Label className="text-sm font-semibold text-[#26231F]">Email address</Label>
-                <Input className="bg-white border border-[#dcc1b8]/40 rounded-xl px-4 py-3 text-[#26231F] placeholder-[#89726b] focus:border-[#c1613c] focus:ring-1 focus:ring-[#c1613c] outline-none transition-all shadow-sm" placeholder="jane@example.com"/>
+                <Label className="text-sm font-semibold text-ink">Email address</Label>
+                <Input className="bg-white border border-[#dcc1b8]/40 rounded-xl px-4 py-3 text-ink placeholder-[#89726b] focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all shadow-sm" placeholder="jane@example.com"/>
               </TextField>
 
               <TextField 
@@ -195,15 +192,15 @@ export default function SignupPage() {
                 name="password" 
                 type="password" 
               >
-                <Label className="text-sm font-semibold text-[#26231F]">Password</Label>
-                <Input className="bg-white border border-[#dcc1b8]/40 rounded-xl px-4 py-3 text-[#26231F] placeholder-[#89726b] focus:border-[#c1613c] focus:ring-1 focus:ring-[#c1613c] outline-none transition-all shadow-sm" placeholder="••••••••"/>
+                <Label className="text-sm font-semibold text-ink">Password</Label>
+                <Input className="bg-white border border-[#dcc1b8]/40 rounded-xl px-4 py-3 text-ink placeholder-[#89726b] focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all shadow-sm" placeholder="••••••••"/>
                 <Description className="text-xs text-[#89726b] mt-1">
                   Must be at least 8 characters with 1 uppercase and 1 number
                 </Description>
               </TextField>
 
               <Button 
-                className="w-full mt-2 bg-[#c1613c] hover:bg-[#a54f2f] text-white font-semibold py-4 rounded-xl shadow-md transition-all duration-300" 
+                className="w-full mt-2 bg-primary hover:bg-[#a54f2f] text-white font-semibold py-4 rounded-xl shadow-md transition-all duration-300" 
                 isLoading={isLoading}
                 type="submit"
               >
@@ -213,9 +210,9 @@ export default function SignupPage() {
 
             {/* Divider */}
             <div className="my-8 flex items-center">
-              <div className="flex-grow border-t border-[#dcc1b8]/40"></div>
+              <div className="grow border-t border-[#dcc1b8]/40"></div>
               <span className="mx-4 text-xs font-bold text-[#89726b] uppercase tracking-wider">or</span>
-              <div className="flex-grow border-t border-[#dcc1b8]/40"></div>
+              <div className="grow border-t border-[#dcc1b8]/40"></div>
             </div>
 
             {/* Google Social Login - Forced to Host contextually */}
@@ -223,7 +220,7 @@ export default function SignupPage() {
               type="button"
               onClick={onGoogleLogin}
               disabled={isGoogleLoading}
-              className="w-full flex justify-center items-center gap-3 bg-white border border-[#dcc1b8]/40 hover:border-[#c1613c]/40 hover:bg-[#F7F1E6] text-[#26231F] font-semibold py-3.5 px-4 rounded-xl shadow-sm transition-all duration-300 disabled:opacity-70"
+              className="w-full flex justify-center items-center gap-3 bg-white border border-[#dcc1b8]/40 hover:border-primary/40 hover:bg-surface text-ink font-semibold py-3.5 px-4 rounded-xl shadow-sm transition-all duration-300 disabled:opacity-70"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
@@ -237,7 +234,7 @@ export default function SignupPage() {
             {/* Footer Login Link */}
             <p className="mt-8 text-center text-[#55433c] text-sm">
               Already have an account?{' '}
-              <Link className="text-[#c1613c] font-semibold hover:underline decoration-2 underline-offset-4" href="/login">
+              <Link className="text-primary font-semibold hover:underline decoration-2 underline-offset-4" href="/login">
                 Log in
               </Link>
             </p>

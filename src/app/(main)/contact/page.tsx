@@ -22,7 +22,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="w-full bg-[#F7F1E6] min-h-screen flex flex-col items-center pb-24 md:pb-32">
+    <div className="w-full bg-surface min-h-screen flex flex-col items-center pb-24 md:pb-32">
       
       {/* 1. Header Section */}
       <section className="w-full max-w-screen-2xl mx-auto px-6 md:px-20 pt-24 md:pt-32 pb-12 md:pb-20 text-center">
@@ -32,10 +32,10 @@ export default function ContactPage() {
           variants={staggerContainer}
           className="max-w-3xl mx-auto flex flex-col gap-6"
         >
-          <motion.span variants={fadeUp} className="text-xs font-bold tracking-[0.2em] text-[#c1613c] uppercase">
+          <motion.span variants={fadeUp} className="text-xs font-bold tracking-[0.2em] text-primary uppercase">
             Here for you
           </motion.span>
-          <motion.h1 variants={fadeUp} className="text-5xl md:text-6xl lg:text-7xl font-serif text-[#26231F] leading-tight tracking-tight">
+          <motion.h1 variants={fadeUp} className="text-5xl md:text-6xl lg:text-7xl font-serif text-ink leading-tight tracking-tight">
             Get in Touch
           </motion.h1>
           <motion.p variants={fadeUp} className="text-lg md:text-xl text-[#55433c] leading-relaxed max-w-2xl mx-auto">
@@ -58,41 +58,41 @@ export default function ContactPage() {
             <form className="flex flex-col gap-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-2">
-                  <label htmlFor="firstName" className="text-sm font-semibold text-[#26231F]">First Name</label>
+                  <label htmlFor="firstName" className="text-sm font-semibold text-ink">First Name</label>
                   <input 
                     type="text" 
                     id="firstName" 
                     placeholder="Jane" 
-                    className="w-full bg-[#F7F1E6] border border-transparent focus:border-[#c1613c] text-[#26231F] placeholder-[#89726b] px-5 py-4 rounded-xl outline-none transition-all"
+                    className="w-full bg-surface border border-transparent focus:border-primary text-ink placeholder-[#89726b] px-5 py-4 rounded-xl outline-none transition-all"
                   />
                 </div>
                 <div className="flex flex-col gap-2">
-                  <label htmlFor="lastName" className="text-sm font-semibold text-[#26231F]">Last Name</label>
+                  <label htmlFor="lastName" className="text-sm font-semibold text-ink">Last Name</label>
                   <input 
                     type="text" 
                     id="lastName" 
                     placeholder="Doe" 
-                    className="w-full bg-[#F7F1E6] border border-transparent focus:border-[#c1613c] text-[#26231F] placeholder-[#89726b] px-5 py-4 rounded-xl outline-none transition-all"
+                    className="w-full bg-surface border border-transparent focus:border-primary text-ink placeholder-[#89726b] px-5 py-4 rounded-xl outline-none transition-all"
                   />
                 </div>
               </div>
 
               <div className="flex flex-col gap-2">
-                <label htmlFor="email" className="text-sm font-semibold text-[#26231F]">Email Address</label>
+                <label htmlFor="email" className="text-sm font-semibold text-ink">Email Address</label>
                 <input 
                   type="email" 
                   id="email" 
                   placeholder="jane@example.com" 
-                  className="w-full bg-[#F7F1E6] border border-transparent focus:border-[#c1613c] text-[#26231F] placeholder-[#89726b] px-5 py-4 rounded-xl outline-none transition-all"
+                  className="w-full bg-surface border border-transparent focus:border-primary text-ink placeholder-[#89726b] px-5 py-4 rounded-xl outline-none transition-all"
                 />
               </div>
 
               <div className="flex flex-col gap-2">
-                <label htmlFor="subject" className="text-sm font-semibold text-[#26231F]">Subject</label>
+                <label htmlFor="subject" className="text-sm font-semibold text-ink">Subject</label>
                 <div className="relative">
                   <select 
                     id="subject" 
-                    className="w-full bg-[#F7F1E6] border border-transparent focus:border-[#c1613c] text-[#26231F] px-5 py-4 rounded-xl outline-none transition-all appearance-none cursor-pointer"
+                    className="w-full bg-surface border border-transparent focus:border-primary text-ink px-5 py-4 rounded-xl outline-none transition-all appearance-none cursor-pointer"
                   >
                     <option value="booking">Booking Inquiry</option>
                     <option value="host">Host Support</option>
@@ -108,18 +108,18 @@ export default function ContactPage() {
               </div>
 
               <div className="flex flex-col gap-2">
-                <label htmlFor="message" className="text-sm font-semibold text-[#26231F]">Message</label>
+                <label htmlFor="message" className="text-sm font-semibold text-ink">Message</label>
                 <textarea 
                   id="message" 
                   rows={5}
                   placeholder="How can we assist you?" 
-                  className="w-full bg-[#F7F1E6] border border-transparent focus:border-[#c1613c] text-[#26231F] placeholder-[#89726b] px-5 py-4 rounded-xl outline-none transition-all resize-none"
+                  className="w-full bg-surface border border-transparent focus:border-primary text-ink placeholder-[#89726b] px-5 py-4 rounded-xl outline-none transition-all resize-none"
                 />
               </div>
 
               <button 
                 type="submit" 
-                className="mt-4 bg-[#c1613c] text-white font-semibold py-4 px-8 rounded-full hover:bg-[#a54f2f] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2 w-full md:w-auto md:self-start group"
+                className="mt-4 bg-primary text-white font-semibold py-4 px-8 rounded-full hover:bg-[#a54f2f] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2 w-full md:w-auto md:self-start group"
               >
                 Send Message
                 <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -137,47 +137,47 @@ export default function ContactPage() {
             className="lg:col-span-5 flex flex-col gap-8"
           >
             {/* Contact Info Card */}
-            <div className="bg-[#2B4739] rounded-[2rem] p-8 md:p-10 shadow-2xl flex flex-col text-[#F7F1E6]">
+            <div className="bg-secondary rounded-[2rem] p-8 md:p-10 shadow-2xl flex flex-col text-surface">
               <h2 className="text-3xl font-serif mb-10">Contact Information</h2>
               
               <div className="flex flex-col gap-8">
                 <div className="flex items-start gap-5 group">
-                  <div className="w-12 h-12 rounded-full bg-[#F7F1E6]/10 flex items-center justify-center shrink-0 group-hover:bg-[#c1613c] transition-colors duration-300">
+                  <div className="w-12 h-12 rounded-full bg-surface/10 flex items-center justify-center shrink-0 group-hover:bg-primary transition-colors duration-300">
                     <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                   </div>
                   <div className="flex flex-col pt-1">
-                    <span className="text-xs font-bold tracking-widest text-[#F7F1E6]/60 uppercase mb-1">Email</span>
-                    <a href="mailto:hello@alcove.com" className="text-lg hover:text-[#c1613c] transition-colors">hello@alcove.com</a>
+                    <span className="text-xs font-bold tracking-widest text-surface/60 uppercase mb-1">Email</span>
+                    <a href="mailto:hello@alcove.com" className="text-lg hover:text-primary transition-colors">hello@alcove.com</a>
                   </div>
                 </div>
 
-                <div className="w-full h-px bg-[#F7F1E6]/10" />
+                <div className="w-full h-px bg-surface/10" />
 
                 <div className="flex items-start gap-5 group">
-                  <div className="w-12 h-12 rounded-full bg-[#F7F1E6]/10 flex items-center justify-center shrink-0 group-hover:bg-[#c1613c] transition-colors duration-300">
+                  <div className="w-12 h-12 rounded-full bg-surface/10 flex items-center justify-center shrink-0 group-hover:bg-primary transition-colors duration-300">
                     <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
                   </div>
                   <div className="flex flex-col pt-1">
-                    <span className="text-xs font-bold tracking-widest text-[#F7F1E6]/60 uppercase mb-1">Phone</span>
-                    <a href="tel:+18001234567" className="text-lg hover:text-[#c1613c] transition-colors">+1 (800) 123-4567</a>
+                    <span className="text-xs font-bold tracking-widest text-surface/60 uppercase mb-1">Phone</span>
+                    <a href="tel:+18001234567" className="text-lg hover:text-primary transition-colors">+1 (800) 123-4567</a>
                   </div>
                 </div>
 
-                <div className="w-full h-px bg-[#F7F1E6]/10" />
+                <div className="w-full h-px bg-surface/10" />
 
                 <div className="flex items-start gap-5 group">
-                  <div className="w-12 h-12 rounded-full bg-[#F7F1E6]/10 flex items-center justify-center shrink-0 group-hover:bg-[#c1613c] transition-colors duration-300">
+                  <div className="w-12 h-12 rounded-full bg-surface/10 flex items-center justify-center shrink-0 group-hover:bg-primary transition-colors duration-300">
                     <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                   </div>
                   <div className="flex flex-col pt-1">
-                    <span className="text-xs font-bold tracking-widest text-[#F7F1E6]/60 uppercase mb-1">Headquarters</span>
+                    <span className="text-xs font-bold tracking-widest text-surface/60 uppercase mb-1">Headquarters</span>
                     <p className="text-lg leading-snug">123 Artisan Way<br/>Portland, OR 97204</p>
                   </div>
                 </div>
@@ -195,7 +195,7 @@ export default function ContactPage() {
               <div className="absolute inset-0 bg-[#e9e1db]/20 mix-blend-overlay" />
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-14 h-14 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-2xl">
-                  <svg className="w-6 h-6 text-[#c1613c]" fill="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24">
                     <path fillRule="evenodd" clipRule="evenodd" d="M12 2C8.13401 2 5 5.13401 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13401 15.866 2 12 2ZM12 11.5C10.6193 11.5 9.5 10.3807 9.5 9C9.5 7.61929 10.6193 6.5 12 6.5C13.3807 6.5 14.5 7.61929 14.5 9C14.5 10.3807 13.3807 11.5 12 11.5Z" />
                   </svg>
                 </div>
@@ -215,20 +215,20 @@ export default function ContactPage() {
           variants={staggerContainer}
           className="flex flex-col gap-6"
         >
-          <motion.h2 variants={fadeUp} className="text-3xl font-serif text-[#26231F] text-center mb-6">
+          <motion.h2 variants={fadeUp} className="text-3xl font-serif text-ink text-center mb-6">
             Quick Answers
           </motion.h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <motion.div variants={fadeUp} className="bg-white rounded-2xl p-8 border border-[#dcc1b8]/20 hover:border-[#c1613c]/30 hover:shadow-lg transition-all duration-300">
-              <h3 className="font-bold text-[#26231F] mb-3">How quickly can I expect a response?</h3>
+            <motion.div variants={fadeUp} className="bg-white rounded-2xl p-8 border border-[#dcc1b8]/20 hover:border-primary/30 hover:shadow-lg transition-all duration-300">
+              <h3 className="font-bold text-ink mb-3">How quickly can I expect a response?</h3>
               <p className="text-[#55433c] text-sm leading-relaxed">
                 We aim to respond to all inquiries within 24 hours during regular business days. For urgent matters regarding an upcoming experience, please use the phone number provided.
               </p>
             </motion.div>
             
-            <motion.div variants={fadeUp} className="bg-white rounded-2xl p-8 border border-[#dcc1b8]/20 hover:border-[#c1613c]/30 hover:shadow-lg transition-all duration-300">
-              <h3 className="font-bold text-[#26231F] mb-3">Can I modify an existing booking?</h3>
+            <motion.div variants={fadeUp} className="bg-white rounded-2xl p-8 border border-[#dcc1b8]/20 hover:border-primary/30 hover:shadow-lg transition-all duration-300">
+              <h3 className="font-bold text-ink mb-3">Can I modify an existing booking?</h3>
               <p className="text-[#55433c] text-sm leading-relaxed">
                 Yes, most bookings can be modified up to 72 hours before the start time. You can do this directly through your account dashboard or by reaching out to us here.
               </p>

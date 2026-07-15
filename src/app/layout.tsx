@@ -24,7 +24,7 @@ export default function RootLayout({
       className={`${inter.variable} font-sans h-full antialiased`}
       style={{ colorScheme: "light" }}
     >
-      <body className="min-h-full flex flex-col bg-[#F7F1E6] text-[#26231F]">
+      <body className="min-h-full flex flex-col bg-surface text-ink">
         {children}
       </body>
     </html>

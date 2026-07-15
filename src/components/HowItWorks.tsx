@@ -18,7 +18,7 @@ export default function HowItWorks() {
   return (
     <div className="w-full mt-12">
       {/* 1. How it works (Terracotta Band) */}
-      <section className="w-full bg-[#c1613c] text-white py-24 relative overflow-hidden">
+      <section className="w-full bg-primary text-white py-24 relative overflow-hidden">
         <div className="max-w-screen-2xl mx-auto px-6 md:px-20 text-center">
           <h2 className="text-4xl md:text-6xl font-serif mb-16">How it works.</h2>
           <motion.div 
@@ -46,7 +46,7 @@ export default function HowItWorks() {
       </section>
 
       {/* 2. Impact Stats & Elena Spotlight */}
-      <section className="w-full bg-[#2B4739] text-[#F7F1E6] pt-16 pb-32 relative rounded-b-[3rem]">
+      <section className="w-full bg-secondary text-surface pt-16 pb-32 relative rounded-b-[3rem]">
         <div className="max-w-screen-2xl mx-auto px-6 md:px-20">
           {/* Stats Row */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center mb-24">
@@ -58,7 +58,7 @@ export default function HowItWorks() {
             ].map((stat, i) => (
               <div key={i} className="flex flex-col gap-1">
                 <span className="text-4xl md:text-5xl mb-1 font-serif">{stat.val}</span>
-                <span className="text-xs font-bold tracking-widest uppercase text-[#F7F1E6]/60">{stat.label}</span>
+                <span className="text-xs font-bold tracking-widest uppercase text-surface/60">{stat.label}</span>
               </div>
             ))}
           </div>
@@ -67,7 +67,7 @@ export default function HowItWorks() {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-[#F7F1E6] text-[#26231F] rounded-[2rem] p-8 md:p-12 shadow-2xl flex flex-col md:flex-row gap-12 items-center"
+            className="bg-surface text-ink rounded-[2rem] p-8 md:p-12 shadow-2xl flex flex-col md:flex-row gap-12 items-center"
           >
             <div className="w-full md:w-1/2 aspect-[4/5] relative rounded-[1.5rem] overflow-hidden shadow-lg">
               <Image 
@@ -78,7 +78,7 @@ export default function HowItWorks() {
               />
             </div>
             <div className="w-full md:w-1/2 flex flex-col gap-6">
-              <span className="text-xs font-bold tracking-[0.2em] text-[#c1613c] uppercase">Behind the Craft</span>
+              <span className="text-xs font-bold tracking-[0.2em] text-primary uppercase">Behind the Craft</span>
               <h2 className="text-4xl md:text-5xl font-serif leading-tight">Meet Rafael,<br/>Master Sculpturist</h2>
               <p className="text-lg leading-relaxed text-[#55433c]">
                 "Sculpture isn't just about creating a form; it's about capturing the essence of life. Every piece of clay holds a story, and I love helping my students discover theirs."
@@ -86,7 +86,7 @@ export default function HowItWorks() {
               <p className="text-[#55433c]">
                 Rafael has been sculpting for over 20 years. His studio in the heart of Barcelona is a sanctuary for those looking to disconnect from the digital world.
               </p>
-              <a href="#" className="font-semibold text-[#c1613c] flex items-center gap-2 hover:gap-4 transition-all">
+              <a href="#" className="font-semibold text-primary flex items-center gap-2 hover:gap-4 transition-all">
                 Read his story →
               </a>
             </div>
