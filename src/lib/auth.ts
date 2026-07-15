@@ -16,4 +16,36 @@ export const auth = betterAuth({
   emailAndPassword: { 
     enabled: true, 
   }, 
+  socialProviders: {
+    google: {
+      clientId: process.env.GOOGLE_CLIENT_ID as string,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+    }
+  },
+  user: {
+    additionalFields: {
+      role: {
+        type: "string",
+        required: false,
+        defaultValue: "guest"
+      }
+    }
+  },
+  databaseHooks: {
+    user: {
+      create: {
+        before: async (user) => {
+          if (!user.emailVerified && !user.password) {
+             return {
+               data: {
+                 ...user,
+                 role: "host"
+               }
+             }
+          }
+          return { data: user };
+        }
+      }
+    }
+  }
 });
