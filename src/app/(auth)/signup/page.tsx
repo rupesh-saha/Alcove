@@ -201,7 +201,7 @@ export default function SignupPage() {
 
               <Button 
                 className="w-full mt-2 bg-primary hover:bg-[#a54f2f] text-white font-semibold py-4 rounded-xl shadow-md transition-all duration-300" 
-                isLoading={isLoading}
+                disabled={isLoading}
                 type="submit"
               >
                 {isLoading ? "Creating Account..." : `Create ${role === "host" ? "Host" : "Guest"} Account`}

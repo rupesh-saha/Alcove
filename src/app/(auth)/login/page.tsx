@@ -186,7 +186,7 @@ export default function LoginPage() {
 
               <Button 
                 className="w-full mt-2 bg-primary hover:bg-[#a54f2f] text-white font-semibold py-4 rounded-xl shadow-md transition-all duration-300" 
-                isLoading={isLoading}
+                disabled={isLoading}
                 type="submit"
               >
                 {isLoading ? "Signing In..." : `Sign In as ${role === "host" ? "Host" : "Guest"}`}
