@@ -95,7 +95,7 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
-            className="relative w-full aspect-square md:aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl bg-[#e9e1db]"
+            className="relative w-full aspect-square md:aspect-4/5 rounded-[2rem] overflow-hidden shadow-2xl bg-[#e9e1db]"
           >
             <Swiper
               modules={[Autoplay, EffectFade, Pagination]}
