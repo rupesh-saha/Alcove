@@ -3,11 +3,12 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+// 1. Import Variants from framer-motion
+import { motion, Variants } from "framer-motion";
 
 export default function FooterBar() {
-  // Framer Motion staggered animation configuration
-  const containerVariants = {
+  // 2. Explicitly type as Variants
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
@@ -17,7 +18,8 @@ export default function FooterBar() {
     },
   };
 
-  const itemVariants = {
+  // 3. Explicitly type as Variants
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     show: { 
       opacity: 1, 
@@ -33,12 +35,11 @@ export default function FooterBar() {
         variants={containerVariants}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.2 }} // Triggers when 20% of footer is in view
+        viewport={{ once: true, amount: 0.2 }}
       >
         
-        {/* Column 1: Brand & Logo */}
         <motion.div variants={itemVariants} className="flex flex-col gap-6">
-          {/* We wrap the logo in a subtle cream background pill so the dark text of the logo doesn't get lost on the dark green background */}
+
           <div className="bg-surface p-3 rounded-2xl w-fit shadow-lg">
             <Image alt="Alcove Logo" className="object-contain h-18 w-auto" height={70} src="/logo.png" width={160}/>
           </div>
@@ -55,7 +56,6 @@ export default function FooterBar() {
           <Link className="text-surface/80 hover:text-white transition-colors duration-300" href="/press">Press</Link> */}
         </motion.div>
 
-        {/* Column 3: Support Links */}
         <motion.div variants={itemVariants} className="flex flex-col gap-5">
           <span className="text-sm font-bold tracking-[0.15em] uppercase text-surface">Support</span>
           <Link className="text-surface/80 hover:text-white transition-colors duration-300" href="/terms">Terms and Conditions</Link>

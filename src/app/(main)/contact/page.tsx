@@ -2,18 +2,18 @@
 
 import React from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+// 1. Import Variants from framer-motion
+import { motion, Variants } from "framer-motion";
 
 export default function ContactPage() {
-  // Extracting the URL to a variable prevents inline JSX parsing errors
   const mapImageUrl = "https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=1200&auto=format&fit=crop";
 
-  const fadeUp = {
+  const fadeUp: Variants = {
     hidden: { opacity: 0, y: 30 },
     show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
   };
 
-  const staggerContainer = {
+  const staggerContainer: Variants = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,

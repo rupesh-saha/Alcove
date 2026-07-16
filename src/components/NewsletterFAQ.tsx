@@ -2,17 +2,17 @@
 
 import React from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { Accordion } from "@heroui/react";
 import { ChevronDown, ArrowRight } from "@gravity-ui/icons";
 
 export default function NewsletterFAQ() {
-  const fadeUp = {
+  const fadeUp: Variants = {
     hidden: { opacity: 0, y: 30 },
     show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
   };
 
-  const staggerContainer = {
+  const staggerContainer: Variants = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
@@ -119,7 +119,7 @@ export default function NewsletterFAQ() {
             <motion.div variants={fadeUp} className="w-full">
               <Accordion className="w-full flex flex-col gap-4">
                 {faqItems.map((item, index) => (
-                  <Accordion.Item className="bg-white rounded-2xl px-6 md:px-8 py-2 shadow-sm border border-[#dcc1b8]/30" key={index} value={`item-${index}`}>
+                  <Accordion.Item className="bg-white rounded-2xl px-6 md:px-8 py-2 shadow-sm border border-[#dcc1b8]/30" key={index}>
                     <Accordion.Heading>
                       <Accordion.Trigger className="w-full py-5 text-left font-semibold text-ink flex justify-between items-center group cursor-pointer hover:text-primary transition-colors">
                         <span className="pr-4">{item.title}</span>

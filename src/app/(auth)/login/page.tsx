@@ -25,7 +25,6 @@ export default function LoginPage() {
     const email = formData.get("email")?.toString() || "";
     const password = formData.get("password")?.toString() || "";
 
-    // Call better-auth signIn
     const { data, error } = await authClient.signIn.email({
       email,
       password,
@@ -186,7 +185,7 @@ export default function LoginPage() {
 
               <Button 
                 className="w-full mt-2 bg-primary hover:bg-[#a54f2f] text-white font-semibold py-4 rounded-xl shadow-md transition-all duration-300" 
-                disabled={isLoading}
+                isDisabled={isLoading} 
                 type="submit"
               >
                 {isLoading ? "Signing In..." : `Sign In as ${role === "host" ? "Host" : "Guest"}`}
@@ -216,7 +215,6 @@ export default function LoginPage() {
               {isGoogleLoading ? "Connecting..." : "Continue with Google"}
             </button>
 
-            {/* Footer Sign Up Link */}
             <p className="mt-8 text-center text-[#55433c] text-sm">
               Don't have an account?{' '}
               <Link className="text-primary font-semibold hover:underline decoration-2 underline-offset-4" href="/signup">

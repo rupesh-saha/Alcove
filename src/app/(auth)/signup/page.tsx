@@ -13,7 +13,6 @@ export default function SignupPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [isGoogleLoading, setIsGoogleLoading] = useState(false);
   
-  // State to track whether the user is signing up as a guest or host
   const [role, setRole] = useState<"guest" | "host">("guest");
   
   const sideImageUrl = "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1200&auto=format&fit=crop";
@@ -34,6 +33,7 @@ export default function SignupPage() {
         name,
         email,
         password,
+        // @ts-expect-error - Custom role field passed to backend
         role, 
         callbackURL: "/",
     });
@@ -201,7 +201,7 @@ export default function SignupPage() {
 
               <Button 
                 className="w-full mt-2 bg-primary hover:bg-[#a54f2f] text-white font-semibold py-4 rounded-xl shadow-md transition-all duration-300" 
-                disabled={isLoading}
+                isDisabled={isLoading}
                 type="submit"
               >
                 {isLoading ? "Creating Account..." : `Create ${role === "host" ? "Host" : "Guest"} Account`}
@@ -215,7 +215,6 @@ export default function SignupPage() {
               <div className="grow border-t border-[#dcc1b8]/40"></div>
             </div>
 
-            {/* Google Social Login - Forced to Host contextually */}
             <button 
               type="button"
               onClick={onGoogleLogin}
@@ -231,7 +230,6 @@ export default function SignupPage() {
               {isGoogleLoading ? "Connecting..." : "Sign up as Host with Google"}
             </button>
 
-            {/* Footer Login Link */}
             <p className="mt-8 text-center text-[#55433c] text-sm">
               Already have an account?{' '}
               <Link className="text-primary font-semibold hover:underline decoration-2 underline-offset-4" href="/login">

@@ -3,7 +3,8 @@
 import React, { useEffect, useState, Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+// 1. Import Variants from framer-motion
+import { motion, Variants } from "framer-motion";
 import { Pagination } from "@heroui/react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation"; 
 
@@ -29,12 +30,14 @@ const formatCategory = (category: string) => {
   return map[category] || category;
 };
 
-const containerVariants = {
+// 2. Explicitly type as Variants
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   show: { opacity: 1, transition: { staggerChildren: 0.1 } },
 };
 
-const itemVariants = {
+// 3. Explicitly type as Variants
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
@@ -266,4 +269,3 @@ export default function ExploreContent() {
     </div>
   );
 }
-

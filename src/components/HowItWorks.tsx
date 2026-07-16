@@ -2,22 +2,22 @@
 
 import React from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 export default function HowItWorks() {
-  const container = {
+  // 2. Explicitly type as Variants
+  const container: Variants = {
     hidden: { opacity: 0 },
     show: { opacity: 1, transition: { staggerChildren: 0.2 } },
   };
 
-  const item = {
+  const item: Variants = {
     hidden: { opacity: 0, y: 20 },
     show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
   };
 
   return (
     <div className="w-full mt-12">
-      {/* 1. How it works (Terracotta Band) */}
       <section className="w-full bg-primary text-white py-24 relative overflow-hidden">
         <div className="max-w-screen-2xl mx-auto px-6 md:px-20 text-center">
           <h2 className="text-4xl md:text-6xl font-serif mb-16">How it works.</h2>

@@ -105,8 +105,8 @@ export default function Navbar() {
               </Link>
               <Button 
                 onPress={handleLogOut} 
-                variant="light" 
-                className="text-sm font-semibold text-primary hover:bg-primary/10 rounded-xl"
+                variant="ghost" // FIX 1: Changed from "light" to "ghost"
+                className="text-sm font-semibold text-primary hover:bg-primary/10 rounded-xl border-none"
                 isIconOnly
                 aria-label="Log Out"
               >
@@ -130,7 +130,7 @@ export default function Navbar() {
 
         <div className="md:hidden">
           <Drawer>
-            <Button className="text-ink" isIconOnly variant="light">
+            <Button className="text-ink border-none" isIconOnly variant="ghost"> {/* FIX 2: Changed from "light" to "ghost" */}
               <Bars height={24} width={24} />
             </Button>
             <Drawer.Backdrop>
